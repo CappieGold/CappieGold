@@ -2,7 +2,7 @@
 
 # Hi, I'm Jérémy Carpentier 👋
 
-**Full Stack Developer — Apprentice Software Engineer @ Evian (SAEME), Danone 🇫🇷**
+**Full Stack Developer — Apprentice Software Engineer @Evian (SAEME), Danone 🇫🇷**
 
 Building business-critical web applications with a strong focus on **software architecture**, **code quality** and **user experience**.
 
@@ -30,7 +30,7 @@ Full-stack TypeScript application managing visit requests, visitors, companies, 
 - ⚙️ **Backend**: AdonisJS 6, PostgreSQL, Kysely — audit trail via triggers, fuzzy search & duplicate detection (pg_trgm)
 - ⚛️ **Frontend**: React 19 + Inertia.js — SSR, real-time (SSE), dark mode, i18n FR/EN, end-to-end TypeScript contract
 - 🔐 **SSO/OIDC** (Keycloak, PKCE flow), RBAC permissions, GDPR compliance
-- ✅ **Quality**: ~570 automated tests, CI, linting, Docker + Nginx deployment
+- ✅ **Quality**: ~700 automated tests, CI, linting, Docker + Nginx deployment
 
 ### 🔐 ADHUB — Active Directory Administration Portal
 > .NET 9 / Blazor Server app centralizing AD administration without direct server access
