@@ -23,6 +23,7 @@ Building business-critical web applications with a strong focus on **software ar
 
 ### 🛂 EasyGate — Visitor Access Management Platform
 > Production app used daily at the Evian site (Danone) — **100+ requests & 300+ visitors handled every month**
+> *Enterprise project — source code hosted on a private internal repository, not publicly available.*
 
 Full-stack TypeScript application managing visit requests, visitors, companies, access zones and multi-team approval workflows. Built almost entirely solo.
 
@@ -34,6 +35,7 @@ Full-stack TypeScript application managing visit requests, visitors, companies, 
 
 ### 🔐 ADHUB — Active Directory Administration Portal
 > .NET 9 / Blazor Server app centralizing AD administration without direct server access
+> *Enterprise project — source code hosted on a private internal repository, not publicly available.*
 
 - 🏗️ **Clean Architecture** (Domain, Application, Infrastructure, WebUI), DI, Result pattern
 - 👥 AD users & groups management (LDAP), account request/approval workflow with notifications
