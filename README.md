@@ -57,6 +57,19 @@ Python application driving Chromium through Selenium to loop images, PDFs and sc
 - ⚙️ **Infrastructure as Code** (Ansible): signed APT repository publication and kiosk provisioning, rollback by releasing forward
 - 🛡️ **Hardening**: Chromium sandbox, enterprise kiosk policies, least-privilege permissions, weekly security update flow
 
+### 📹 BreakWatch — Machine Stoppage Recording on Raspberry Pi
+> Embedded Python application that records industrial machines on a Raspberry Pi and keeps the footage around every stoppage
+> *Enterprise project — source code hosted on a private internal repository, not publicly available.*
+
+The camera records continuously into a ring buffer. When a machine stops (signal received through a REST API), the application keeps the seconds before and after the fault, merges the segments with ffmpeg, archives the clip with its metadata and notifies operators by email.
+
+- 🏗️ **Hexagonal architecture** (ports & adapters): domain and application layers tested with fakes, no hardware needed — thread-safe state machine, prioritized command queue, single worker owning the camera
+- 🎥 **Embedded**: Picamera2 ring-buffer recording with configurable pre/post-fault window, GPIO status LEDs, Wi-Fi link monitor, crash recovery at startup
+- 🔌 **REST API** (Flask + Gunicorn): bearer authentication, HMAC-signed download links, strict Pydantic validation, live configuration through `GET`/`PUT`/`PATCH /config`
+- 🔍 **Audit & hardening**: documentation-vs-code audit (22 discrepancies resolved), fixed race conditions (double camera open, start/stop window), path traversal and a silent config reset, safe-by-default startup (refuses weak API keys in production)
+- ✅ **Quality**: 140+ automated tests running on any PC, ruff linting, structured JSON logs with size-based rotation
+- 📦 **Delivery**: arm64 Debian package with bundled dependencies for offline install, released and deployed to the Raspberry Pi units with Gitea Actions and Ansible
+
 ---
 
 ## 🛠️ Tech Stack
@@ -76,6 +89,8 @@ Python application driving Chromium through Selenium to loop images, PDFs and sc
 ![.NET 9](https://img.shields.io/badge/.NET%209-512BD4?style=flat-square&logo=dotnet&logoColor=white)
 ![Blazor](https://img.shields.io/badge/Blazor-512BD4?style=flat-square&logo=blazor&logoColor=white)
 ![EF Core](https://img.shields.io/badge/EF%20Core-512BD4?style=flat-square&logo=dotnet&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)
+![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=flat-square&logo=pydantic&logoColor=white)
 
 **Frontend**
 
@@ -104,10 +119,13 @@ Python application driving Chromium through Selenium to loop images, PDFs and sc
 ![Active Directory](https://img.shields.io/badge/Active%20Directory-0078D4?style=flat-square&logo=windows&logoColor=white)
 ![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=flat-square&logo=selenium&logoColor=white)
 ![aptly](https://img.shields.io/badge/aptly%20(APT%20mirror)-2C3E50?style=flat-square&logo=debian&logoColor=white)
+![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-A22846?style=flat-square&logo=raspberrypi&logoColor=white)
+![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=flat-square&logo=ffmpeg&logoColor=white)
+![uv](https://img.shields.io/badge/uv-DE5FE9?style=flat-square&logo=uv&logoColor=white)
 
 **Architecture & Practices**
 
-`DDD` · `CQRS` · `Clean Architecture` · `SOLID` · `ADR` · `Automated Testing` · `CI/CD` · `GitOps` · `Infrastructure as Code` · `Reproducible Builds` · `i18n` · `RBAC` · `GDPR`
+`DDD` · `CQRS` · `Clean Architecture` · `Hexagonal Architecture` · `SOLID` · `ADR` · `Automated Testing` · `CI/CD` · `GitOps` · `Infrastructure as Code` · `Reproducible Builds` · `Embedded Systems` · `State Machines` · `i18n` · `RBAC` · `GDPR`
 
 ---
 
